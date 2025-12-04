@@ -92,3 +92,5 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 };
+
+// End of src/pages/api/submit-exam.ts
