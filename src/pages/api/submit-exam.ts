@@ -107,6 +107,7 @@ export const POST: APIRoute = async ({ request }) => {
       requestBody: fileMetadata,
       media: media,
       fields: 'id',
+      supportsAllDrives: true, // allow uploads to shared drives
     });
 
     return new Response(JSON.stringify({ success: true, fileId: file.data.id }), {
