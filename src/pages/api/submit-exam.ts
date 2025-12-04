@@ -11,6 +11,38 @@ function getCleanKey(key: string | undefined) {
   return key.replace(/\\n/g, '\n');
 }
 
+function loadServiceAccount() {
+  // Allow passing either the raw key/client email or the entire service account JSON (optionally base64-encoded)
+  const rawServiceAccount = import.meta.env.GOOGLE_SERVICE_ACCOUNT_BASE64 || import.meta.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+
+  let privateKey = getCleanKey(import.meta.env.GOOGLE_PRIVATE_KEY);
+  let clientEmail = import.meta.env.GOOGLE_CLIENT_EMAIL;
+
+  if (rawServiceAccount) {
+    try {
+      const decoded = rawServiceAccount.includes('{')
+        ? rawServiceAccount
+        : Buffer.from(rawServiceAccount, 'base64').toString('utf8');
+      const parsed = JSON.parse(decoded);
+      privateKey = getCleanKey(parsed.private_key) || privateKey;
+      clientEmail = parsed.client_email || clientEmail;
+    } catch (error) {
+      console.error('Failed to parse GOOGLE_SERVICE_ACCOUNT env value.', error);
+      throw new Error('Server Configuration Error: Invalid Google Credentials');
+    }
+  }
+
+  if (!privateKey || !privateKey.includes('BEGIN PRIVATE KEY') || !clientEmail) {
+    console.error('CRITICAL ERROR: Google credentials missing or malformed.', {
+      hasClientEmail: Boolean(clientEmail),
+      keyPreview: privateKey ? privateKey.substring(0, 30) + '...' : 'undefined',
+    });
+    throw new Error('Server Configuration Error: Invalid Google Credentials');
+  }
+
+  return { clientEmail, privateKey };
+}
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await request.json();
@@ -43,15 +75,11 @@ export const POST: APIRoute = async ({ request }) => {
     const pdfBytes = await pdfDoc.save();
 
     // 2. AUTHENTICATE WITH GOOGLE
-    const privateKey = getCleanKey(import.meta.env.GOOGLE_PRIVATE_KEY);
-    const clientEmail = import.meta.env.GOOGLE_CLIENT_EMAIL;
+    const { clientEmail, privateKey } = loadServiceAccount();
     const folderId = import.meta.env.GOOGLE_DRIVE_FOLDER_ID;
 
-    // Debugging Check (Check console logs if this fails)
-    if (!privateKey || !privateKey.includes('BEGIN PRIVATE KEY')) {
-      console.error("CRITICAL ERROR: Google Private Key is missing or invalid.");
-      console.error("Key received:", privateKey ? privateKey.substring(0, 20) + "..." : "undefined");
-      throw new Error("Server Configuration Error: Invalid Google Credentials");
+    if (!folderId) {
+      throw new Error("Server Configuration Error: Missing Google Drive folder id");
     }
 
     const auth = new google.auth.GoogleAuth({
