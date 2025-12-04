@@ -1,0 +1,98 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Módulo 2: Reporte de incidentes" currentModule={2}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Tema 2 de 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Reporte de incidentes críticos</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      Reconocer un problema es solo la mitad del trabajo. Como reportero(a) obligatorio(a), debes saber <strong>qué</strong> reportar, <strong>cómo</strong> hacerlo y <strong>cuándo</strong> (siempre dentro de 24 horas).
+    </p>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">Qué se considera “incidente crítico”</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-amber-500">
+        <h4 class="font-bold text-slate-900 text-lg">1. Lesiones o accidentes</h4>
+        <p class="text-sm text-slate-600 mt-2">
+          Caídas, golpes en la cabeza, fracturas, cortes profundos o moretones sin explicación.
+          <br><em class="text-xs text-slate-500">Ejemplo: se resbala en el baño aunque diga que está bien.</em>
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-red-500">
+        <h4 class="font-bold text-slate-900 text-lg">2. Emergencias médicas</h4>
+        <p class="text-sm text-slate-600 mt-2">
+          Dolor en el pecho, dificultad para respirar, pérdida de conciencia, alergias severas.
+          <br><strong class="text-red-600 text-xs">Acción: llama al 911, luego a tu supervisor.</strong>
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-purple-500">
+        <h4 class="font-bold text-slate-900 text-lg">3. Cambios significativos de salud</h4>
+        <p class="text-sm text-slate-600 mt-2">
+          Nueva confusión, dificultad súbita para caminar, cambios drásticos de ánimo, signos de infección (fiebre, orina con mal olor).
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-blue-500">
+        <h4 class="font-bold text-slate-900 text-lg">4. Preocupaciones del participante</h4>
+        <p class="text-sm text-slate-600 mt-2">
+          Dice que teme a alguien, que falta dinero o medicamentos, o que fue maltratado.
+          <br><em class="text-xs text-slate-500">Regla: si lo menciona, lo reportas.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 text-white rounded-2xl p-8 mb-10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-8 opacity-10">
+        <svg width="128" height="128" style="width: 128px; height: 128px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-white mb-6 relative z-10">Proceso de reporte obligatorio (24 horas)</h3>
+      <div class="space-y-6 relative z-10 text-sm">
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">1</div>
+          <div>
+            <strong class="block text-lg">Actúa de inmediato</strong>
+            <p class="text-slate-200 m-0">Llama a tu supervisor o director de programa el mismo día. No esperes al siguiente turno.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">2</div>
+          <div>
+            <strong class="block text-lg">Documenta con datos</strong>
+            <p class="text-slate-200 m-0">Quién, qué, dónde y cuándo. Ej: “Vi sangre en el vendaje de la pierna derecha a las 2:10 pm”.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">3</div>
+          <div>
+            <strong class="block text-lg">Reporte externo</strong>
+            <p class="text-slate-200 m-0">La agencia contacta a DHS/APS. Si sientes que no se actúa, puedes llamar a ChildLine (1-800-932-0313) o APS directo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-xl p-6 mb-12">
+      <h4 class="text-lg font-bold text-slate-900 mb-3">Errores comunes que debes evitar</h4>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-2">
+        <li>Minimizar (“solo fue un resbalón leve”). Cada caída se reporta.</li>
+        <li>Esperar a que “otro” lo reporte. Tú eres responsable de iniciar el proceso.</li>
+        <li>Compartir detalles con personas no autorizadas. Mantén la privacidad.</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 border-t border-slate-200">
+        <a href="/es/module-1" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; Anterior: Prevención del abuso
+        </a>
+        <a href="/es/module-3" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            Siguiente: Derechos del participante &rarr;
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

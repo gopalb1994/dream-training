@@ -1,0 +1,69 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="मोड्युल ६: ठगी रोकथाम" currentModule={6}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">विषय ६ मध्ये ६</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">ठगी र आर्थिक दुर्व्यवहार</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <div class="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg mb-8">
+      <h3 class="text-red-900 font-bold text-xl m-0 mb-2">चेतावनी: Medicaid ठगी फौजदारी अपराध</h3>
+      <p class="text-red-800 m-0 text-sm">झुटो जानकारी दिएर पैसा लिनु संघीय अपराध हो। “थाहा थिएन” भन्ने बहाना मानिँदैन।</p>
+    </div>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">साधारण ठगीका प्रकार</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">काम नगरी बिलिङ</strong>
+        <p class="text-sm text-slate-700"><strong>दृश्य:</strong> सिफ्ट ५:०० बजे सम्म, ४:३० मा निस्केर ५:०० लेख्ने।<br/><strong>निर्णय:</strong> ठगी—काम गरे जति मात्र बिल गर्नु।</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">रेकर्ड फर्जर</strong>
+        <p class="text-sm text-slate-700"><strong>दृश्य:</strong> मंगलबार इन/आउट गर्न बिर्सेर बुधबार पुरानो समय हाल्ने।<br/><strong>निर्णय:</strong> गलत; सुपरभाइजरसँग मिलाएर मात्र सुधार्ने।</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">डबल बिलिङ</strong>
+        <p class="text-sm text-slate-700"><strong>दृश्य:</strong> दुई एजेन्सीमा एउटै समयमा इन गर्ने।<br/><strong>निर्णय:</strong> एउटै समयमा दुई ठाउँमा हुन सक्दैन।</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">घुस वा महँगो उपहार</strong>
+        <p class="text-sm text-slate-700"><strong>दृश्य:</strong> काम नगरेको घण्टा साइन गराउन पैसा दिने/लिने।<br/><strong>निर्णय:</strong> गैरकानुनी; तुरुन्त बर्खास्त र कानुनी कारबाही हुन सक्छ।</p>
+      </div>
+    </div>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-4">रोकथाम चेकलिस्ट</h3>
+    <ul class="space-y-4 list-none pl-0">
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">GPS खुला राखी EVV एप प्रयोग गर्नुहोस्। इन/आउट छुटेमा पछि “भरिने” होइन, कार्यालयसँग मिलाउनुहोस्।</span>
+      </li>
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">भविष्यको मिति वा नगरेको घण्टा साइन नगर्नु।</span>
+      </li>
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">आर्थिक सीमा पालना गर्नुहोस्: ऋण/उपहार नलिनु, कार्ड प्रयोग नगर्नु, किनबेच नगर्नु।</span>
+      </li>
+    </ul>
+
+    <div class="flex justify-between items-center pt-8 mt-12 border-t border-slate-200">
+        <a href="/ne/module-5" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; अघिल्लो: गुणस्तर व्यवस्थापन
+        </a>
+        <a href="/ne/competency" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2 transform hover:-translate-y-1 transition">
+            दक्षता परीक्षा सुरु गर्नुहोस्
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

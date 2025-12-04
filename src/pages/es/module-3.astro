@@ -1,0 +1,81 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Módulo 3: Resolución de quejas" currentModule={3}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Tema 3 de 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Cómo manejar quejas del participante</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      Una queja es una oportunidad de mejorar. La persona atendida tiene derecho a expresar inconformidades sin miedo a perder servicios o sufrir represalias.
+    </p>
+
+    <div class="bg-indigo-50 border-l-4 border-indigo-600 p-6 rounded-r-lg mb-8">
+      <h3 class="text-indigo-900 font-bold text-xl m-0 mb-2">Compromiso de “cero represalias”</h3>
+      <p class="text-indigo-800 m-0 text-sm">
+        Es ilegal castigar a alguien por quejarse. No puedes llegar tarde a propósito, ser cortante o amenazar con renunciar.
+      </p>
+    </div>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">Tu rol paso a paso</h3>
+    <div class="space-y-5">
+      <div class="flex gap-4 items-start p-4 bg-white rounded-lg shadow-sm border border-slate-100">
+        <div class="bg-slate-100 p-3 rounded-full text-slate-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+          </svg>
+        </div>
+        <div>
+          <strong class="text-lg text-slate-900 block">Escucha con respeto</strong>
+          <p class="text-sm text-slate-600 m-0">Di: <em>“Entiendo que esté molesto(a). Quiero ayudar a resolverlo. Puedo avisar a mi supervisor o darle el número.”</em></p>
+        </div>
+      </div>
+
+      <div class="flex gap-4 items-start p-4 bg-white rounded-lg shadow-sm border border-slate-100">
+        <div class="bg-slate-100 p-3 rounded-full text-slate-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+          </svg>
+        </div>
+        <div>
+          <strong class="text-lg text-slate-900 block">Reporta hacia arriba</strong>
+          <p class="text-sm text-slate-600 m-0">Notifica al supervisor el mismo día. Cada queja se registra en el sistema de la agencia.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-4 items-start p-4 bg-white rounded-lg shadow-sm border border-slate-100">
+        <div class="bg-slate-100 p-3 rounded-full text-slate-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
+          </svg>
+        </div>
+        <div>
+          <strong class="text-lg text-slate-900 block">Da seguimiento básico</strong>
+          <p class="text-sm text-slate-600 m-0">Pregunta en tu próximo turno si la persona recibió respuesta. Si no, recuerda al supervisor.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mt-10">
+      <h4 class="text-lg font-bold text-slate-900 mb-3">Ejemplos de frases útiles</h4>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-2">
+        <li>“Voy a escribir exactamente lo que me contó para que le llamen hoy.”</li>
+        <li>“Puedo quedarme en línea mientras llama a la oficina, si eso le hace sentir más seguro(a).”</li>
+        <li>“No perderá servicios por compartir esto; es su derecho.”</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 mt-12 border-t border-slate-200">
+        <a href="/es/module-2" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; Anterior: Reporte de incidentes
+        </a>
+        <a href="/es/module-4" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            Siguiente: Políticas y procedimientos &rarr;
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

@@ -1,0 +1,65 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="मोड्युल ५: गुणस्तर व्यवस्थापन" currentModule={5}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">विषय ५ मध्ये ६</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">गुणस्तर व्यवस्थापन योजना</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      गुणस्तर व्यवस्थापन (QM) तपाईंलाई दण्डित गर्न होइन, राम्रो सेवा सुनिश्चित गर्न हो। तथ्यांक प्रयोग गरेर प्रशिक्षण, समर्थन र सुधार गर्छौं।
+    </p>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">हामी गुणस्तर कसरी मापन गर्छौं</h3>
+    <div class="space-y-4 mb-10">
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">01</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">वार्षिक गृह निरीक्षण</strong>
+          <span class="text-sm text-slate-600 block">सुपरभाइजरले तपाईंको प्रविधि र केयर प्लानको पालना हेर्छन्।</span>
+        </div>
+      </div>
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">02</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">सन्तुष्टि सर्वेक्षण</strong>
+          <span class="text-sm text-slate-600 block">समयपालन, सम्मान, सुरक्षा भावना—यी प्रश्नहरूले तपाईंको मूल्याङ्कन निर्धारण गर्छ।</span>
+        </div>
+      </div>
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">03</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">वार्षिक मूल्याङ्कन</strong>
+          <span class="text-sm text-slate-600 block">हाजिरी, कागज/एपमा सही लेखा, र क्लिनिकल सीप परीक्षण गरिन्छ।</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-sky-50 p-8 rounded-2xl text-center mb-10">
+      <h4 class="text-sky-900 font-bold text-lg mb-2">लगातार सुधार चक्र</h4>
+      <p class="text-sky-800 text-sm max-w-2xl mx-auto">डेटा सङ्कलन (सर्भे/घटना) → प्रवृत्ति विश्लेषण → प्रशिक्षण → सेवा सुधार।</p>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-xl p-6">
+      <h4 class="text-lg font-bold text-slate-900 mb-3">तपाईं अहिले के गर्न सक्नुहुन्छ</h4>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-2">
+        <li>स्वास्थ्य परिवर्तन तुरुन्त नोट र रिपोर्ट गर्नु—निरीक्षणमा आश्चर्य कम हुन्छ।</li>
+        <li>सहभागीलाई “तपाईं सुरक्षित महसुस गर्नुहुन्छ?” सोध्नु र जवाफ सुनाउनु।</li>
+        <li>इन/आउट छुट्यो भने ढाँट्नु होइन, सुपरभाइजरलाई बुझाएर कानुनी रूपमा मिलाउनु।</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 mt-12 border-t border-slate-200">
+        <a href="/ne/module-4" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; अघिल्लो: नीति र प्रक्रिया
+        </a>
+        <a href="/ne/module-6" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            अर्को: ठगी रोकथाम &rarr;
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

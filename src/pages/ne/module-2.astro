@@ -1,0 +1,87 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="मोड्युल २: घटना रिपोर्टिङ" currentModule={2}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">विषय २ मध्ये ६</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">महत्वपूर्ण घटना रिपोर्ट गर्ने</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      समस्या देख्नु पर्याप्त होइन। अनिवार्य रिपोर्टरको रूपमा <strong>के</strong> रिपोर्ट गर्ने, <strong>कसरी</strong>, र <strong>कहिले</strong> (२४ घण्टा भित्र) बुझ्नुपर्छ।
+    </p>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">“महत्वपूर्ण घटना” मा के पर्छ?</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-amber-500">
+        <h4 class="font-bold text-slate-900 text-lg">१. चोटपटक वा दुर्घटना</h4>
+        <p class="text-sm text-slate-600 mt-2">जसरी भए पनि लडेको, टाउको ठोक्किएको, हड्डी भाँचिएको, वा अनौठो निलडाम।<br/><em class="text-xs text-slate-500">उदाहरण: बाथरूममा चिप्लिए, “ठिक छु” भने पनि रिपोर्ट।</em></p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-red-500">
+        <h4 class="font-bold text-slate-900 text-lg">२. चिकित्सकीय आपतकाल</h4>
+        <p class="text-sm text-slate-600 mt-2">छाती दुखाइ, सास फेर्न गाह्रो, बेहोस, गम्भीर एलर्जी।<br/><strong class="text-red-600 text-xs">कदम: पहिले ९११, त्यसपछि सुपरभाइजर।</strong></p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-purple-500">
+        <h4 class="font-bold text-slate-900 text-lg">३. स्वास्थ्यमा ठूलो परिवर्तन</h4>
+        <p class="text-sm text-slate-600 mt-2">अचानक अलमल, उभिन/हिँड्न नसक्ने, मनोवृत्तिमा तीव्र परिवर्तन, ज्वरो/संक्रमण संकेत।</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-blue-500">
+        <h4 class="font-bold text-slate-900 text-lg">४. सहभागीका चिन्ता</h4>
+        <p class="text-sm text-slate-600 mt-2">“पैसा हरायो”, “फलानोबाट डर लाग्छ” जस्ता कुरा भने।<br/><em class="text-xs text-slate-500">नियम: बोल्यो भने अवश्य लेख्ने र रिपोर्ट गर्ने।</em></p>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 text-white rounded-2xl p-8 mb-10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-8 opacity-10">
+        <svg width="128" height="128" style="width: 128px; height: 128px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-white mb-6 relative z-10">अनिवार्य रिपोर्टिङ (२४ घण्टा भित्र)</h3>
+      <div class="space-y-6 relative z-10 text-sm">
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">1</div>
+          <div>
+            <strong class="block text-lg">तुरुन्त सम्पर्क</strong>
+            <p class="text-slate-200 m-0">सुपरभाइजर/प्रोग्राम निर्देशकलाई त्यही दिन कल गर्नुहोस्। अर्को सिफ्ट कुर्दै नबस्नुहोस्।</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">2</div>
+          <div>
+            <strong class="block text-lg">तथ्य लेखाजोखा</strong>
+            <p class="text-slate-200 m-0">कसले, के, कहाँ, कहिले। उदाहरण: “दायाँ खुट्टाको पट्टीमा रगत २:१० बजे देखें।”</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">3</div>
+          <div>
+            <strong class="block text-lg">बाह्य रिपोर्ट</strong>
+            <p class="text-slate-200 m-0">एजेन्सीले DHS/APS सँग समन्वय गर्छ। प्रतिक्रिया नआएमा तपाईंले ChildLine (1-800-932-0313) वा APS लाई फोन गर्न पाउनुहुन्छ।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-xl p-6 mb-12">
+      <h4 class="text-lg font-bold text-slate-900 mb-3">नगर्नु पर्ने गल्तीहरू</h4>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-2">
+        <li>“सानो लडाइँ मात्रै” भनेर बेवास्ता गर्नु। हरेक पतन रिपोर्ट हुन्छ।</li>
+        <li>“अरूले रिपोर्ट गर्छन् होला” भनेर ढिलाइ गर्नु। सुरु गर्ने जिम्मेवारी तपाईंको हो।</li>
+        <li>अनधिकृत व्यक्तिसँग जानकारी बाँड्नु। गोपनीयता अनिवार्य।</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 border-t border-slate-200">
+        <a href="/ne/module-1" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; अघिल्लो: दुर्व्यवहार रोकथाम
+        </a>
+        <a href="/ne/module-3" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            अर्को: गुनासो समाधान &rarr;
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

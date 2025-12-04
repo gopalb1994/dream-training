@@ -1,0 +1,92 @@
+---
+import CourseLayout from '../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Module 6: Fraud Prevention" currentModule={6}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Topic 6 of 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Fraud & Financial Abuse</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <div class="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg mb-8">
+      <h3 class="text-red-900 font-bold text-xl m-0 mb-2">Warning: Medicaid Fraud is a Felony</h3>
+      <p class="text-red-800 m-0">
+        Providing false information to get paid by Medicaid is a federal crime. Ignorance is not a defense in a court of law.
+      </p>
+    </div>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">Common Types of Fraud</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">Billing for Services Not Rendered</strong>
+        <p class="text-sm text-slate-700">
+          <strong>Scenario:</strong> You are scheduled until 5:00 PM. You leave at 4:30 PM but write 5:00 PM on your timesheet.
+          <br><strong>Verdict:</strong> This is fraud. You must bill exactly for the time you work.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">Falsifying Records</strong>
+        <p class="text-sm text-slate-700">
+          <strong>Scenario:</strong> You forget to clock in on Tuesday, so on Wednesday you clock in for yesterday.
+          <br><strong>Verdict:</strong> This is falsification. You must contact your supervisor to fix timecard errors legally.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">Double Billing</strong>
+        <p class="text-sm text-slate-700">
+          <strong>Scenario:</strong> You work for two agencies. You clock in for Participant A and Participant B at the same time.
+          <br><strong>Verdict:</strong> You cannot be in two places at once.
+        </p>
+      </div>
+      
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">Kickbacks & Gifts</strong>
+        <p class="text-sm text-slate-700">
+          <strong>Scenario:</strong> You give the participant $20 from your paycheck if they sign a timesheet for hours you didn't work.
+          <br><strong>Verdict:</strong> This is a kickback scheme and results in immediate termination and prosecution.
+        </p>
+      </div>
+    </div>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">Prevention: Your Checklist</h3>
+    
+    <ul class="space-y-4 list-none pl-0">
+      
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">Use the EVV app correctly (GPS location on).</span>
+      </li>
+
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">Never sign a timesheet for a future date.</span>
+      </li>
+
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">Maintain strict financial boundaries (no borrowing/lending).</span>
+      </li>
+
+    </ul>
+
+    <div class="flex justify-between items-center pt-8 mt-12 border-t border-slate-200">
+        <a href="/module-5" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            ← Previous: Quality Management
+        </a>
+        <a href="/competency" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2 transform hover:-translate-y-1 transition">
+            Start Competency Exam →
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

@@ -1,0 +1,45 @@
+---
+import CourseLayout from '../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title=`{"Welcome"}` currentModule={0}>
+  <div class="space-y-8">
+    <div class="bg-sky-50 border-l-4 border-sky-500 p-6 rounded-r-lg">
+      <h1 class="text-3xl font-bold text-slate-900 mb-2">OLTL Annual Mandatory Training</h1>
+      <p class="text-lg text-slate-700">For Direct Care Workers & Personal Assistance Services</p>
+    </div>
+
+    <div class="prose prose-slate max-w-none text-lg leading-relaxed">
+      <p>
+        Welcome to the <strong>Dream Home Care LLC</strong> annual training portal. This course satisfies the 
+        Pennsylvania Department of Health and Office of Long-Term Living (OLTL) requirements under 
+        <em>§ 52.21(d) Mandatory Training Requirements</em>.
+      </p>
+      
+      <h3 class="text-xl font-bold text-slate-800 mt-8 mb-4">Course Overview</h3>
+      <p>You must complete all 6 modules and the final competency verification. The modules cover:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+          <span class="text-sky-600 font-bold text-sm uppercase">Topic 1</span>
+          <h4 class="font-bold text-slate-900 mt-1">Abuse Prevention</h4>
+          <p class="text-slate-600 text-sm mt-2">Recognizing physical, emotional, and financial exploitation.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+          <span class="text-sky-600 font-bold text-sm uppercase">Topic 2</span>
+          <h4 class="font-bold text-slate-900 mt-1">Incident Reporting</h4>
+          <p class="text-slate-600 text-sm mt-2">Critical timelines and mandatory reporting obligations.</p>
+        </div>
+        </div>
+
+      <div class="mt-12 flex justify-end">
+        <a href="/module-1" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform transition hover:-translate-y-1 flex items-center gap-2">
+          Start Module 1
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</CourseLayout>

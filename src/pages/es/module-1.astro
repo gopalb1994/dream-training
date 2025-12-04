@@ -1,0 +1,129 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Módulo 1: Prevención del abuso" currentModule={1}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Tema 1 de 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Prevención del abuso y la explotación</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      El abuso no siempre deja moretones visibles. Como cuidador(a) domiciliario(a), eres la primera línea de defensa.
+      Conocer los tipos de abuso, reconocer señales y actuar rápido protege la dignidad y la vida de la persona a tu cargo.
+    </p>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">Tipos principales de abuso</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <div class="flex items-start gap-3">
+          <div class="bg-red-100 p-3 rounded-lg text-red-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold text-slate-900 m-0">Abuso físico</h4>
+            <p class="mt-1 text-slate-700 text-sm">
+              Uso de fuerza que causa dolor, lesión o miedo: golpes, empujones, sacudidas, sujeciones o uso de químicos sin orden médica.
+            </p>
+            <ul class="mt-3 text-sm text-slate-700 space-y-1">
+              <li><strong>Señales:</strong> moretones inexplicables (brazos, costillas), marcas de sujeción, flinches al mover la mano.</li>
+              <li><strong>Riesgo común:</strong> transferencias apresuradas, levantar sin ayudas, empujar la silla.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <div class="flex items-start gap-3">
+          <div class="bg-indigo-100 p-3 rounded-lg text-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold text-slate-900 m-0">Abuso emocional/psicológico</h4>
+            <p class="mt-1 text-slate-700 text-sm">
+              Humillar, gritar, amenazar, ignorar o aislar a la persona. El miedo constante es una señal crítica.
+            </p>
+            <ul class="mt-3 text-sm text-slate-700 space-y-1">
+              <li><strong>Frases nunca permitidas:</strong> “Si sigues quejándote me voy” o “Si no firmas, no comerás”.</li>
+              <li><strong>Signos:</strong> llanto frecuente, retraimiento, miedo a un trabajador o familiar.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 md:col-span-2">
+        <div class="flex items-start gap-3">
+          <div class="bg-emerald-100 p-3 rounded-lg text-emerald-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold text-slate-900 m-0">Explotación financiera</h4>
+            <p class="mt-1 text-slate-700 text-sm">
+              Uso ilegal o inapropiado de dinero, tarjetas, cheques o pertenencias del participante.
+            </p>
+            <div class="bg-slate-50 p-4 rounded-lg mt-3 border-l-4 border-emerald-500 text-sm">
+              <strong class="text-emerald-800 block mb-1">Límites claros:</strong>
+              <p class="m-0 text-slate-700">No pidas préstamos, no aceptes regalos costosos, no uses EBT/tarjetas para ti, no pidas propinas ni comida. Aun si lo ofrecen, es una violación profesional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-10">
+      <h3 class="text-2xl font-bold text-slate-900">Negligencia: descuido intencional o por omisión</h3>
+      <p class="text-slate-700 text-sm">
+        Negligencia es no proveer los servicios necesarios para mantener la salud y seguridad del participante.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <div class="bg-slate-100 p-5 rounded-lg">
+          <strong class="block text-slate-900 mb-2">Negligencia pasiva</strong>
+          <p class="text-sm m-0">Ocurre por desconocimiento, falta de capacitación o sentirte abrumado. Ej: olvidar ofrecer agua, no revisar la piel al bañar.</p>
+        </div>
+        <div class="bg-slate-100 p-5 rounded-lg">
+          <strong class="block text-slate-900 mb-2">Negligencia activa</strong>
+          <p class="text-sm m-0">Decidir no brindar cuidado. Ej: no cambiar un pañal porque “estás en descanso” o dejar a la persona sin supervisión.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 text-white rounded-2xl p-8 mb-10">
+      <h3 class="text-xl font-bold text-white mb-4">Cómo responder si sospechas abuso o negligencia</h3>
+      <ul class="space-y-3 text-sm text-slate-100 list-none pl-0">
+        <li class="flex gap-3 items-start">
+          <span class="font-bold text-sky-300">1.</span>
+          <span><strong>Garantiza seguridad inmediata.</strong> Si hay peligro físico o médico, llama al 911 primero.</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="font-bold text-sky-300">2.</span>
+          <span><strong>Documenta hechos, no opiniones.</strong> “Moretón del tamaño de una moneda en brazo derecho; participante dijo que la empujaron.”</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="font-bold text-sky-300">3.</span>
+          <span><strong>Informa en las primeras 24 horas.</strong> Llama a tu supervisor/director programático. No esperes al siguiente turno.</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="font-bold text-sky-300">4.</span>
+          <span><strong>Mantén la confidencialidad.</strong> Habla solo con quien investiga (supervisor, APS, familia designada).</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 border-t border-slate-200">
+        <a href="/es/module-1" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; Volver al inicio del módulo
+        </a>
+        <a href="/es/module-2" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            Siguiente: Reporte de incidentes &rarr;
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

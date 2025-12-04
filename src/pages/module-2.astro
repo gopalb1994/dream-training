@@ -1,0 +1,102 @@
+---
+import CourseLayout from '../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Module 2: Incident Reporting" currentModule={2}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Topic 2 of 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Reporting Critical Incidents</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      Recognizing a problem is only half the battle. You must know <strong>when</strong> and <strong>how</strong> to report it. As a mandatory reporter, your prompt action can save a life.
+    </p>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">What Constitutes a "Critical Incident"?</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-amber-500">
+        <h4 class="font-bold text-slate-900 text-lg">1. Serious Injury & Accidents</h4>
+        <p class="text-sm text-slate-600 mt-2">
+          Any fall (even if they say they are fine), fracture, head injury, or unexplained bruising.
+          <br><em class="text-xs text-slate-500">Example: The participant slips in the bathroom, even if you catch them.</em>
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-red-500">
+        <h4 class="font-bold text-slate-900 text-lg">2. Medical Emergencies</h4>
+        <p class="text-sm text-slate-600 mt-2">
+          Chest pain, difficulty breathing, loss of consciousness, or severe allergic reactions.
+          <br><strong class="text-red-600 text-xs">Action: Call 911 immediately, then call your supervisor.</strong>
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-purple-500">
+        <h4 class="font-bold text-slate-900 text-lg">3. Significant Health Changes</h4>
+        <p class="text-sm text-slate-600 mt-2">
+          Sudden confusion (possible UTI or stroke), inability to walk when they normally can, or severe changes in mood/behavior.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-blue-500">
+        <h4 class="font-bold text-slate-900 text-lg">4. Participant Concerns</h4>
+        <p class="text-sm text-slate-600 mt-2">
+          If a participant tells you they are afraid of a family member, or that their money is missing.
+          <br><em class="text-xs text-slate-500">Rule: If they voice a concern, you must document and report it.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 text-white rounded-2xl p-8 mb-12 relative overflow-hidden">
+      
+      <div class="absolute top-0 right-0 p-8 opacity-10">
+        <svg 
+          width="128" 
+          height="128" 
+          style="width: 128px; height: 128px;" 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 20 20" 
+          fill="currentColor"
+        >
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      
+      <h3 class="text-2xl font-bold text-white mb-6 relative z-10">The Mandatory Reporting Process</h3>
+      <div class="space-y-6 relative z-10">
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">1</div>
+          <div>
+            <strong class="block text-lg">IMMEDIATE Action (Within 24 Hours)</strong>
+            <p class="text-slate-300 text-sm">You must contact your Supervisor or Program Director. Do not wait for Monday morning if it happens on Friday night.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">2</div>
+          <div>
+            <strong class="block text-lg">Document Details</strong>
+            <p class="text-slate-300 text-sm">Write down the "Who, What, Where, When." Be factual. Do not write "I think he was drunk." Write "I smelled alcohol and he was slurring his speech".</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="bg-sky-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">3</div>
+          <div>
+            <strong class="block text-lg">External Reporting</strong>
+            <p class="text-slate-300 text-sm">The agency will contact the PA Department of Human Services. However, if you feel the agency is not acting, you have the right to call ChildLine (1-800-932-0313) or Adult Protective Services directly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 border-t border-slate-200">
+        <a href="/module-1" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            ← Previous: Abuse Prevention
+        </a>
+        <a href="/module-3" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            Next: Participant Rights →
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

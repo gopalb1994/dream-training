@@ -1,0 +1,86 @@
+---
+import CourseLayout from '../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Module 1: Abuse Prevention" currentModule={1}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Topic 1 of 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Prevention of Abuse and Exploitation</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      Abuse isn't always obvious. As a Direct Care Worker, you are the first line of defense in protecting vulnerable participants. Understanding the different types of abuse is the first step in prevention.
+    </p>
+
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-8">
+      <div class="flex items-start gap-4">
+        <div class="bg-red-100 p-3 rounded-lg text-red-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 m-0">Physical Abuse</h3>
+          <p class="mt-2 text-slate-700">
+            Physical abuse is the use of force that results in injury, pain, or impairment. It is more than just hitting.
+          </p>
+          <ul class="mt-4 space-y-2">
+            <li><strong>Rough Handling:</strong> Shaking a participant or moving them too aggressively during transfers.</li>
+            <li><strong>Restraints:</strong> Using bed rails, locking doors, or tying a participant to a chair (chemical or physical restraints) without a doctor's order and care plan authorization.</li>
+            <li><strong>Signs to watch for:</strong> Unexplained bruising (especially on upper arms), welts, cuts, or the participant flinching when you move your hand.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-8">
+      <div class="flex items-start gap-4">
+        <div class="bg-emerald-100 p-3 rounded-lg text-emerald-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 m-0">Financial Exploitation</h3>
+          <p class="mt-2 text-slate-700">
+            This involves the illegal or improper use of a participant's resources.
+          </p>
+          <div class="bg-slate-50 p-4 rounded-lg mt-4 border-l-4 border-emerald-500">
+            <strong class="text-emerald-800 block mb-1">Strict Prohibition:</strong>
+            <p class="text-sm m-0">
+              You must <strong>never</strong> ask a participant for a loan, use their EBT/Credit cards for your own purchases, or ask them to buy you lunch. Even if the participant offers, it is a professional boundary violation that can be considered exploitation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold text-slate-900">Understanding Neglect</h3>
+      <p>
+        Neglect is the failure to provide goods or services necessary to maintain the health and safety of the participant.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <div class="bg-slate-100 p-5 rounded-lg">
+          <strong class="block text-slate-900 mb-2">Passive Neglect</strong>
+          <p class="text-sm m-0">Unintentionally failing to provide care because of lack of knowledge or being overwhelmed. (e.g., forgetting to offer water).</p>
+        </div>
+        <div class="bg-slate-100 p-5 rounded-lg">
+          <strong class="block text-slate-900 mb-2">Active Neglect</strong>
+          <p class="text-sm m-0">Intentionally withholding care. (e.g., refusing to change a soiled brief because you are "on break").</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 border-t border-slate-200">
+        <a href="/" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            ← Back to Overview
+        </a>
+        <a href="/module-2" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            Next: Incident Reporting →
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

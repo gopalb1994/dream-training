@@ -1,0 +1,61 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Módulo 4: Políticas y procedimientos" currentModule={4}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Tema 4 de 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Políticas y procedimientos del departamento</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      Cumplir políticas no es “papeleo”: es requisito legal. Seguir el plan de cuidado y las reglas de OLTL protege al participante y tu empleo.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div class="bg-white p-6 rounded-xl shadow border-t-4 border-t-sky-500">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">1. Plan de cuidado (PCSP)</h3>
+        <p class="text-sm text-slate-600"><strong>Regla:</strong> Cumple exactamente las tareas autorizadas.</p>
+        <p class="text-sm text-slate-600 mt-2">Si el plan dice “aseo, comida y medicación asistida”, no puedes dedicar horas a limpiar garaje o hacer trámites personales.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow border-t-4 border-t-sky-500">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">2. EVV (control de entrada/salida)</h3>
+        <p class="text-sm text-slate-600"><strong>Regla:</strong> Marca ingreso y salida en la casa de la persona usando la app.</p>
+        <p class="text-sm text-slate-600 mt-2">El GPS es obligatorio. Fichar desde tu casa o con ubicación apagada se considera facturación incorrecta.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow border-t-4 border-t-sky-500">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">3. Cambios de estado</h3>
+        <p class="text-sm text-slate-600"><strong>Regla:</strong> Informa de inmediato cualquier hospitalización, caída o cambio de salud.</p>
+        <p class="text-sm text-slate-600 mt-2">La agencia no puede facturar mientras el participante está hospitalizado. Llama antes de tu siguiente turno.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow border-t-4 border-t-sky-500">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">4. Precauciones universales</h3>
+        <p class="text-sm text-slate-600"><strong>Regla:</strong> Trata todos los fluidos como infecciosos.</p>
+        <p class="text-sm text-slate-600 mt-2">Usa guantes para baño y aseo, lava manos al llegar y al salir, y limpia superficies tocadas.</p>
+      </div>
+    </div>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-12">
+      <h4 class="text-lg font-bold text-slate-900 mb-3">Buenas prácticas rápidas</h4>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-2">
+        <li>Revisa el plan de cuidado antes de cada turno; confirma horarios de medicación y apoyos.</li>
+        <li>Si el participante pide tareas no autorizadas, explica con respeto y ofrece llamar a la oficina para actualizar el plan.</li>
+        <li>Toma nota de suministros faltantes (guantes, desinfectante) y repórtalo.</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 border-t border-slate-200">
+        <a href="/es/module-3" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; Anterior: Quejas del participante
+        </a>
+        <a href="/es/module-5" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            Siguiente: Gestión de calidad &rarr;
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

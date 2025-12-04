@@ -1,0 +1,67 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Módulo 5: Gestión de calidad" currentModule={5}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Tema 5 de 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Plan de gestión de calidad</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      La gestión de calidad (QM) no busca castigarte; busca que brindemos el mejor servicio posible. Usamos datos para entrenar, apoyar y mejorar.
+    </p>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">Cómo medimos la calidad</h3>
+    <div class="space-y-4 mb-10">
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">01</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">Visitas anuales en el hogar</strong>
+          <span class="text-sm text-slate-600 block">Un supervisor observa tus técnicas y confirma que sigues el plan de cuidado.</span>
+        </div>
+      </div>
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">02</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">Encuestas de satisfacción</strong>
+          <span class="text-sm text-slate-600 block">Preguntamos puntualidad, respeto y sensación de seguridad. Tus calificaciones se basan en su experiencia.</span>
+        </div>
+      </div>
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">03</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">Evaluaciones de desempeño</strong>
+          <span class="text-sm text-slate-600 block">Revisamos asistencia, precisión de documentación y habilidades de cuidado cada año.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-sky-50 p-8 rounded-2xl text-center mb-10">
+      <h4 class="text-sky-900 font-bold text-lg mb-2">Ciclo de mejora continua</h4>
+      <p class="text-sky-800 text-sm max-w-2xl mx-auto">
+        Recolectamos datos (encuestas/incidentes) → Analizamos tendencias → Ofrecemos capacitación → El servicio mejora.
+      </p>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-xl p-6">
+      <h4 class="text-lg font-bold text-slate-900 mb-3">Cómo puedes ayudar hoy</h4>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-2">
+        <li>Registra cambios de salud y reporta temprano; evita sorpresas en las visitas de calidad.</li>
+        <li>Pregunta al participante “¿Se siente seguro(a)?” y comparte la respuesta.</li>
+        <li>Si fallas un reloj de entrada/salida, informa para corregirlo de forma legal y transparente.</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 mt-12 border-t border-slate-200">
+        <a href="/es/module-4" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; Anterior: Políticas y procedimientos
+        </a>
+        <a href="/es/module-6" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            Siguiente: Prevención de fraude &rarr;
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

@@ -1,0 +1,61 @@
+---
+import CourseLayout from '../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Module 5: Quality Management" currentModule={5}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Topic 5 of 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Quality Management Plan</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      Quality Management (QM) isn't about getting you in trouble; it's about ensuring we deliver the best care possible. Dream Home Care LLC uses data to improve our services constantly.
+    </p>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">How We Measure Quality</h3>
+    
+    <div class="space-y-4 mb-12">
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">01</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">Annual Home Visits</strong>
+          <span class="text-sm text-slate-600">A supervisor will visit you while you are working to observe your techniques and ensure the care plan is being followed.</span>
+        </div>
+      </div>
+
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">02</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">Participant Satisfaction Surveys</strong>
+          <span class="text-sm text-slate-600">We ask participants: "Does your worker arrive on time?" and "Do you feel safe?" Your performance is directly tied to this feedback.</span>
+        </div>
+      </div>
+
+      <div class="flex items-center p-4 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="font-bold text-sky-600 text-xl w-12 text-center">03</div>
+        <div class="flex-1 px-4">
+          <strong class="block text-slate-900">Performance Evaluations</strong>
+          <span class="text-sm text-slate-600">Once a year, you will receive a formal review covering your attendance, documentation accuracy, and competency skills.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-sky-50 p-8 rounded-2xl text-center">
+      <h4 class="text-sky-900 font-bold text-lg mb-2">The Continuous Improvement Loop</h4>
+      <p class="text-sky-800 text-sm max-w-2xl mx-auto">
+        We collect data (Surveys/Incidents) → We analyze the trends → We provide training (like this course) → Service improves.
+      </p>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 mt-12 border-t border-slate-200">
+        <a href="/module-4" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            ← Previous: Policies & Procedures
+        </a>
+        <a href="/module-6" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            Next: Fraud Prevention →
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

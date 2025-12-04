@@ -1,0 +1,71 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Módulo 6: Prevención de fraude" currentModule={6}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">Tema 6 de 6</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">Fraude y abuso financiero</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <div class="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg mb-8">
+      <h3 class="text-red-900 font-bold text-xl m-0 mb-2">Advertencia: el fraude de Medicaid es un delito grave</h3>
+      <p class="text-red-800 m-0 text-sm">
+        Proveer información falsa para cobrar es un crimen federal. “No sabía” no es defensa.
+      </p>
+    </div>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">Tipos comunes de fraude</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">Facturar servicios no prestados</strong>
+        <p class="text-sm text-slate-700"><strong>Escenario:</strong> tu turno es hasta las 5:00 pm, sales 4:30 pm y marcas 5:00 pm.<br/><strong>Veredicto:</strong> fraude. Registra solo el tiempo trabajado.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">Falsificar registros</strong>
+        <p class="text-sm text-slate-700"><strong>Escenario:</strong> olvidaste fichar martes y el miércoles registras la entrada de ayer.<br/><strong>Veredicto:</strong> falsificación. Llama al supervisor para corregir legalmente.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">Doble facturación</strong>
+        <p class="text-sm text-slate-700"><strong>Escenario:</strong> trabajas con dos agencias y marcas dos turnos al mismo tiempo.<br/><strong>Veredicto:</strong> imposible estar en dos lugares.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <strong class="text-red-600 block mb-2">Sobornos o regalos</strong>
+        <p class="text-sm text-slate-700"><strong>Escenario:</strong> ofreces dinero para que firmen horas que no trabajaste o aceptas “regalos” costosos.<br/><strong>Veredicto:</strong> esquema ilegal; termina en despido y posible proceso penal.</p>
+      </div>
+    </div>
+
+    <h3 class="text-2xl font-bold text-slate-900 mb-4">Prevención: lista de control rápida</h3>
+    <ul class="space-y-4 list-none pl-0">
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">Usa la app EVV con GPS activado. Si olvidas marcar, llama para que lo corrijan; no “rellenes” después.</span>
+      </li>
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">No firmes hojas de tiempo con fechas futuras ni horas que no trabajaste.</span>
+      </li>
+      <li class="flex items-start gap-3 m-0">
+        <svg width="24" height="24" class="text-green-500 flex-shrink-0" style="min-width: 24px; width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-slate-700">Respeta límites financieros: no pidas préstamos, no aceptes tarjetas, no compres ni vendas artículos al participante.</span>
+      </li>
+    </ul>
+
+    <div class="flex justify-between items-center pt-8 mt-12 border-t border-slate-200">
+        <a href="/es/module-5" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; Anterior: Gestión de calidad
+        </a>
+        <a href="/es/competency" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2 transform hover:-translate-y-1 transition">
+            Ir al examen de competencia
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>

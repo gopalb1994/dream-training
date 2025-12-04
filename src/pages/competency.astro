@@ -1,0 +1,461 @@
+---
+import CourseLayout from '../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="Final Competency Exam" currentModule={7}>
+  
+  <div x-data="examLogic()" class="max-w-4xl mx-auto">
+    
+    <div x-show="step === 'intro'" class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-sky-600">
+      <h1 class="text-3xl font-bold text-slate-900 mb-4">Direct Care Worker Competency Exam</h1>
+      <p class="text-lg text-slate-700 mb-6">
+        This exam checks your knowledge of essential home care skills and Pennsylvania requirements (OLTL / PA Home Care).
+      </p>
+      
+      <div class="bg-slate-100 p-6 rounded-lg mb-8">
+        <h3 class="font-bold text-slate-900 mb-2">Exam Rules:</h3>
+        <ul class="list-disc ml-5 space-y-2 text-slate-700">
+          <li>There are <strong>26 questions</strong>.</li>
+          <li>You must score <strong>80% or higher</strong> to pass.</li>
+          <li>Topics cover: Confidentiality, Infection Control, Personal Care, and Fraud Prevention.</li>
+          <li><strong>Short Answers:</strong> Your written answers will be reviewed by your supervisor on your certificate.</li>
+        </ul>
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-sm font-bold text-slate-700 mb-2">Enter Your Full Name (for Certificate)</label>
+        <input type="text" x-model="studentName" class="w-full p-3 border border-slate-300 rounded-lg text-lg" placeholder="e.g. Jane Doe">
+      </div>
+
+      <button 
+        @click="startExam()" 
+        :disabled="studentName.length < 3"
+        :class="studentName.length < 3 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'"
+        class="w-full bg-sky-600 text-white font-bold py-4 rounded-xl shadow-lg transition transform"
+      >
+        Start Exam
+      </button>
+    </div>
+
+    <div x-show="step === 'test'" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+      
+      <div class="w-full bg-slate-200 rounded-full h-2.5 mb-6">
+        <div class="bg-sky-600 h-2.5 rounded-full transition-all duration-300" :style="`width: ${(currentQuestion + 1) / questions.length * 100}%`"></div>
+      </div>
+
+      <span class="text-xs font-bold text-sky-600 uppercase tracking-wider">Question <span x-text="currentQuestion + 1"></span> of <span x-text="questions.length"></span></span>
+      
+      <h2 class="text-2xl font-bold text-slate-900 mt-2 mb-6" x-text="questions[currentQuestion].text"></h2>
+
+      <template x-if="questions[currentQuestion].type === 'mc'">
+        <div class="space-y-3">
+          <template x-for="(option, index) in questions[currentQuestion].options" :key="index">
+            <button 
+              @click="selectAnswer(option.char)"
+              class="w-full text-left p-4 rounded-lg border-2 transition-all flex items-start gap-3"
+              :class="userAnswers[currentQuestion] === option.char ? 'border-sky-500 bg-sky-50' : 'border-slate-200 hover:border-sky-300'"
+            >
+              <span class="font-bold text-slate-500" x-text="option.char + '.'"></span>
+              <span class="text-slate-800" x-text="option.text"></span>
+            </button>
+          </template>
+        </div>
+      </template>
+
+      <template x-if="questions[currentQuestion].type === 'text'">
+        <div>
+          <textarea 
+            x-model="userAnswers[currentQuestion]" 
+            rows="4" 
+            class="w-full p-4 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 outline-none"
+            placeholder="Type your answer here..."
+          ></textarea>
+        </div>
+      </template>
+
+      <div class="flex justify-between mt-8 pt-8 border-t border-slate-100">
+        <button 
+          @click="currentQuestion--" 
+          x-show="currentQuestion > 0"
+          class="text-slate-500 font-bold hover:text-sky-600"
+        >
+          ← Previous
+        </button>
+        <div class="flex-1"></div> <button 
+          x-show="currentQuestion < questions.length - 1"
+          @click="nextQuestion()"
+          class="bg-sky-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-sky-700 disabled:opacity-50"
+          :disabled="!userAnswers[currentQuestion]"
+        >
+          Next Question →
+        </button>
+
+        <button 
+          x-show="currentQuestion === questions.length - 1"
+          @click="submitExam()"
+          class="bg-green-600 text-white font-bold py-2 px-8 rounded-lg hover:bg-green-700 disabled:opacity-50"
+          :disabled="!userAnswers[currentQuestion]"
+        >
+          Submit Exam
+        </button>
+      </div>
+    </div>
+
+    <div x-show="step === 'fail'" class="bg-red-50 p-8 rounded-2xl border border-red-200 text-center">
+      <div class="inline-block p-4 rounded-full bg-red-100 text-red-600 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <h2 class="text-3xl font-bold text-red-900 mb-2">Exam Failed</h2>
+      <p class="text-red-800 mb-6">You scored <span x-text="scorePercentage"></span>%. You need 80% to pass.</p>
+      <button @click="resetExam()" class="bg-red-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700">
+        Retake Exam
+      </button>
+    </div>
+
+    <div x-show="step === 'pass'" class="animate-fade-in">
+      
+      <div class="bg-green-50 p-6 rounded-xl border border-green-200 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 print:hidden">
+        <div>
+          <h3 class="text-xl font-bold text-green-900">Congratulations! You Passed.</h3>
+          <p class="text-green-800">Score: <span x-text="scorePercentage"></span>%</p>
+        </div>
+        <button onclick="window.print()" class="bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow hover:bg-green-800 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          Print / Save PDF
+        </button>
+      </div>
+
+      <div class="bg-white p-12 border-8 border-double border-slate-200 text-center relative shadow-xl print:shadow-none print:border-4 print:p-8">
+        <div class="text-2xl font-serif font-bold text-slate-900 mb-2">DREAM HOME CARE LLC</div>
+        <div class="text-sm text-slate-500 mb-8 uppercase tracking-widest">Excellence in Home Care</div>
+
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-sky-700 mb-6">Certificate of Competency</h1>
+        
+        <p class="text-lg text-slate-700 mb-8">This certifies that</p>
+        
+        <div class="text-3xl font-bold text-slate-900 border-b-2 border-slate-300 inline-block px-12 pb-2 mb-8 font-serif" x-text="studentName"></div>
+        
+        <p class="text-slate-700 max-w-2xl mx-auto leading-relaxed mb-8">
+          Has successfully completed the <strong>Annual Direct Care Worker Training & Competency Exam</strong> 
+          in compliance with 55 PA Code § 52.21, covering Abuse Prevention, Incident Reporting, 
+          Infection Control, Personal Care Skills, and Fraud Prevention.
+        </p>
+
+        <div class="grid grid-cols-2 gap-12 max-w-2xl mx-auto mt-12 text-left">
+          <div>
+            <p class="text-sm text-slate-500 mb-1">Date Completed</p>
+            <p class="font-bold text-lg" x-text="new Date().toLocaleDateString()"></p>
+          </div>
+          <div>
+            <p class="text-sm text-slate-500 mb-1">Exam Score</p>
+            <p class="font-bold text-lg"><span x-text="scorePercentage"></span>%</p>
+          </div>
+        </div>
+
+        <div class="mt-12 text-left border-t border-slate-200 pt-8 print:block">
+          <h4 class="font-bold text-slate-900 mb-4 text-sm uppercase">Supervisor Review Section (Short Answers)</h4>
+          <div class="bg-slate-50 p-4 rounded mb-4 border border-slate-200">
+            <p class="text-xs font-bold text-slate-500 mb-1">Q4: Examples of Changes to Report</p>
+            <p class="text-sm italic" x-text="userAnswers[3] || 'No answer provided'"></p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded border border-slate-200">
+            <p class="text-xs font-bold text-slate-500 mb-1">Q26: Quality Management Example</p>
+            <p class="text-sm italic" x-text="userAnswers[25] || 'No answer provided'"></p>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t-2 border-slate-900 flex justify-between items-end">
+            <div class="text-center">
+                <div class="h-12 w-48 border-b border-slate-400 mb-2"></div>
+                <p class="text-xs font-bold uppercase">Employee Signature</p>
+            </div>
+            <div class="text-center">
+                <div class="font-script text-2xl text-sky-700 mb-1">Gopal Baskota</div>
+                <div class="h-px w-48 bg-slate-400 mb-2"></div>
+                <p class="text-xs font-bold uppercase">Program Director</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script is:inline>
+    function examLogic() {
+      return {
+        step: 'intro', // intro, test, submitting, pass, fail
+        studentName: '',
+        currentQuestion: 0,
+        score: 0,
+        scorePercentage: 0,
+        userAnswers: {},
+        questions: [
+          // Part A - Core
+          { type: 'mc', text: '1. Confidentiality means:', options: [
+            { char: 'A', text: 'Sharing consumer info only with people who need to know for care.' },
+            { char: 'B', text: 'Sharing stories about consumers with co-workers during breaks.' },
+            { char: 'C', text: 'Posting about your consumer on social media.' },
+            { char: 'D', text: 'Telling the neighbor about health problems.' }
+          ], correct: 'A' },
+          
+          { type: 'mc', text: '2. The independent living philosophy means:', options: [
+            { char: 'A', text: 'The worker makes all decisions.' },
+            { char: 'B', text: 'The consumer directs their own services and choices.' },
+            { char: 'C', text: 'The consumer must do everything alone.' },
+            { char: 'D', text: 'The worker decides what is best.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '3. Which is an Instrumental Activity of Daily Living (IADL)?', options: [
+            { char: 'A', text: 'Feeding' },
+            { char: 'B', text: 'Bathing' },
+            { char: 'C', text: 'Meal preparation and grocery shopping' },
+            { char: 'D', text: 'Toileting' }
+          ], correct: 'C' },
+
+          { type: 'text', text: '4. List two examples of changes in a consumer that you must report right away.' },
+
+          { type: 'mc', text: '5. Best way to prevent spread of infection?', options: [
+            { char: 'A', text: 'Wearing gloves instead of washing hands.' },
+            { char: 'B', text: 'Washing hands with soap and water before/after care.' },
+            { char: 'C', text: 'Only wearing a mask.' },
+            { char: 'D', text: 'Using sanitizer only once.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '6. Universal precautions mean:', options: [
+            { char: 'A', text: 'Treating all blood and body fluids as infectious.' },
+            { char: 'B', text: 'Only using precautions if they look sick.' },
+            { char: 'C', text: 'Wearing gloves only for visible blood.' },
+            { char: 'D', text: 'Only for known infections.' }
+          ], correct: 'A' },
+
+          { type: 'mc', text: '7. Consumer has chest pain and shortness of breath. You should:', options: [
+            { char: 'A', text: 'Wait 30 minutes.' },
+            { char: 'B', text: 'Call the family first.' },
+            { char: 'C', text: 'Call 911 immediately and then notify supervisor.' },
+            { char: 'D', text: 'Give them something to drink.' }
+          ], correct: 'C' },
+
+          { type: 'mc', text: '8. Best example of proper documentation?', options: [
+            { char: 'A', text: 'Consumer seemed weird.' },
+            { char: 'B', text: 'Consumer was probably sick.' },
+            { char: 'C', text: '12/04, 9am - Assisted with bathing. Consumer reported dizziness. Supervisor notified.' },
+            { char: 'D', text: 'Did normal stuff, everything fine.' }
+          ], correct: 'C' },
+
+          { type: 'mc', text: '9. You suspect abuse. As a mandatory reporter, you must:', options: [
+            { char: 'A', text: 'Stay silent.' },
+            { char: 'B', text: 'Report suspicion to supervisor/ChildLine/APS immediately.' },
+            { char: 'C', text: 'Wait until you are 100% sure.' },
+            { char: 'D', text: 'Ask the abuser what happened.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '10. Consumer is shouting and refusing care. You should:', options: [
+            { char: 'A', text: 'Shout back.' },
+            { char: 'B', text: 'Leave immediately.' },
+            { char: 'C', text: 'Stay calm, speak quietly, try to understand, and report.' },
+            { char: 'D', text: 'Threaten to stop services.' }
+          ], correct: 'C' },
+
+          // Part B - Personal Care
+          { type: 'mc', text: '11. Most important before bathing:', options: [
+            { char: 'A', text: 'Make water very hot.' },
+            { char: 'B', text: 'Check water temp and ensure privacy.' },
+            { char: 'C', text: 'Leave door open.' },
+            { char: 'D', text: 'Finish quickly.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '12. Safest practice for shaving:', options: [
+            { char: 'A', text: 'Use a dull blade.' },
+            { char: 'B', text: 'Use another consumer’s razor.' },
+            { char: 'C', text: 'Use consumer’s own razor/electric shaver per care plan.' },
+            { char: 'D', text: 'Shave even if they refuse.' }
+          ], correct: 'C' },
+
+          { type: 'mc', text: '13. Grooming tasks should be done:', options: [
+            { char: 'A', text: 'Only if extra time.' },
+            { char: 'B', text: 'According to consumer preference and safety.' },
+            { char: 'C', text: 'How you think looks best.' },
+            { char: 'D', text: 'Only if family asks.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '14. Dressing a consumer with right-side weakness:', options: [
+            { char: 'A', text: 'Strong side first.' },
+            { char: 'B', text: 'Weak side first.' },
+            { char: 'C', text: 'Does not matter.' },
+            { char: 'D', text: 'Ask them to do it alone.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '15. Best practice for hair care:', options: [
+            { char: 'A', text: 'Brush gently, check scalp, follow preferred style.' },
+            { char: 'B', text: 'Cut hair without permission.' },
+            { char: 'C', text: 'Use very hot water.' },
+            { char: 'D', text: 'Ignore tangles.' }
+          ], correct: 'A' },
+
+          { type: 'mc', text: '16. Most important to prevent skin breakdown:', options: [
+            { char: 'A', text: 'Leave in same position.' },
+            { char: 'B', text: 'Keep skin clean/dry, notice redness, report changes.' },
+            { char: 'C', text: 'Use any lotion found.' },
+            { char: 'D', text: 'Scrub vigorously.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '17. Mouth care:', options: [
+            { char: 'A', text: 'Only needed for natural teeth.' },
+            { char: 'B', text: 'Brush/clean daily, observe for sores, report problems.' },
+            { char: 'C', text: 'Family responsibility only.' },
+            { char: 'D', text: 'Use any chemicals available.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '18. Safest transfer with gait belt:', options: [
+            { char: 'A', text: 'Lift by arms.' },
+            { char: 'B', text: 'Belt around waist, stand close, use legs, follow care plan.' },
+            { char: 'C', text: 'Pull by clothing.' },
+            { char: 'D', text: 'Ask consumer to hold furniture.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '19. Safe meal prep and feeding:', options: [
+            { char: 'A', text: 'Give allergic food if asked.' },
+            { char: 'B', text: 'Ignore swallowing precautions.' },
+            { char: 'C', text: 'Follow diet/texture in care plan, check temp, sit upright.' },
+            { char: 'D', text: 'Feed while lying flat.' }
+          ], correct: 'C' },
+
+          { type: 'mc', text: '20. Assisting transfer to toilet:', options: [
+            { char: 'A', text: 'Leave them alone.' },
+            { char: 'B', text: 'Proper mechanics, privacy, ensure call bell is reachable, stay close.' },
+            { char: 'C', text: 'Rush them.' },
+            { char: 'D', text: 'Ignore pain.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '21. Assisting with medications (PAS):', options: [
+            { char: 'A', text: 'Decide what to stop taking.' },
+            { char: 'B', text: 'Place pills in mouth.' },
+            { char: 'C', text: 'Remind, hand labeled container, document.' },
+            { char: 'D', text: 'Change dose.' }
+          ], correct: 'C' },
+
+          // Part C - Fraud
+          { type: 'mc', text: '22. Example of fraud:', options: [
+            { char: 'A', text: 'Calling supervisor.' },
+            { char: 'B', text: 'Billing for hours not worked.' },
+            { char: 'C', text: 'Asking about paycheck.' },
+            { char: 'D', text: 'Writing detailed notes.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '23. Purpose of EVV:', options: [
+            { char: 'A', text: 'Make job harder.' },
+            { char: 'B', text: 'Track time/location to prove services were provided.' },
+            { char: 'C', text: 'Clock in from home.' },
+            { char: 'D', text: 'Replace documentation.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '24. Critical Incident (Fall):', options: [
+            { char: 'A', text: 'Tell them not to report.' },
+            { char: 'B', text: 'Call 911 if needed, ensure safety, report to agency.' },
+            { char: 'C', text: 'Ignore it.' },
+            { char: 'D', text: 'Write in personal notebook only.' }
+          ], correct: 'B' },
+
+          { type: 'mc', text: '25. Participant Complaint:', options: [
+            { char: 'A', text: 'Complaints not allowed.' },
+            { char: 'B', text: 'Encourage silence.' },
+            { char: 'C', text: 'Explain right to complain without retaliation, provide contacts.' },
+            { char: 'D', text: 'Argue with them.' }
+          ], correct: 'C' },
+
+          { type: 'text', text: '26. Give one example of how a DCW can support Quality Management.' }
+        ],
+        
+        startExam() {
+          this.step = 'test';
+          window.scrollTo(0, 0);
+        },
+
+        selectAnswer(char) {
+          this.userAnswers[this.currentQuestion] = char;
+        },
+
+        nextQuestion() {
+          this.currentQuestion++;
+          window.scrollTo(0, 0);
+        },
+
+        resetExam() {
+          this.currentQuestion = 0;
+          this.score = 0;
+          this.userAnswers = {};
+          this.step = 'test';
+          window.scrollTo(0, 0);
+        },
+
+        // --- ASYNC SUBMIT FUNCTION (AUTOMATIC PDF UPLOAD) ---
+        async submitExam() {
+          let correctCount = 0;
+          let totalScored = 0;
+
+          // Grade the MC questions
+          this.questions.forEach((q, index) => {
+            if (q.type === 'mc') {
+              totalScored++;
+              if (this.userAnswers[index] === q.correct) {
+                correctCount++;
+              }
+            }
+          });
+
+          this.scorePercentage = Math.round((correctCount / totalScored) * 100);
+
+          if (this.scorePercentage >= 80) {
+            // PASS LOGIC
+            this.step = 'submitting'; // Show "Uploading..." spinner
+
+            try {
+              // Send data to the Astro/Netlify API
+              const response = await fetch('/api/submit-exam', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  studentName: this.studentName,
+                  score: this.scorePercentage,
+                  answers: this.userAnswers,
+                  date: new Date().toLocaleDateString()
+                })
+              });
+
+              const result = await response.json();
+
+              if (result.success) {
+                // API success
+                this.step = 'pass';
+              } else {
+                // API failed but user passed exam
+                console.error(result.error);
+                alert('Warning: Could not upload to Google Drive. Please print your certificate manually.');
+                this.step = 'pass';
+              }
+            } catch (e) {
+              console.error(e);
+              alert('Network error. Please print your certificate manually.');
+              this.step = 'pass';
+            }
+
+          } else {
+            // FAIL LOGIC
+            this.step = 'fail';
+          }
+          window.scrollTo(0, 0);
+        }
+      }
+    }
+  </script>
+  <div x-show="step === 'submitting'" class="text-center p-12">
+  <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-sky-600 mx-auto mb-4"></div>
+  <h2 class="text-xl font-bold text-slate-700">Generating Certificate & Uploading...</h2>
+  <p class="text-slate-500">Please wait.</p>
+</div>
+</CourseLayout>

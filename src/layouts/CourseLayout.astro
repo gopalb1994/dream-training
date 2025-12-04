@@ -1,0 +1,149 @@
+---
+// src/layouts/CourseLayout.astro
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../utils/i18n';
+import { languages } from '../i18n/ui';
+import '../styles/global.css' 
+// 1. Define the props the layout accepts
+interface Props {
+  title: string;
+  currentModule: number;
+}
+
+// 2. CRITICAL STEP: Extract 'title' and 'currentModule' from Astro.props
+// If this line is missing, you get the "title is not defined" error.
+const { title, currentModule } = Astro.props;
+
+// 1. Get current language
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// 2. Define modules (Translating titles here for simplicity)
+const modules = [
+  { id: 1, title: lang === 'es' ? "Abuso y Explotación" : lang === 'ne' ? "दुर्व्यवहार र शोषण" : "Abuse & Exploitation", url: "/module-1" },
+  { id: 2, title: lang === 'es' ? "Reporte de Incidentes" : lang === 'ne' ? "घटना रिपोर्टिङ" : "Reporting Incidents", url: "/module-2" },
+  { id: 3, title: lang === 'es' ? "Resolución de quejas" : lang === 'ne' ? "गुनासो समाधान" : "Complaint Resolution", url: "/module-3" },
+  { id: 4, title: lang === 'es' ? "Políticas y Procedimientos" : lang === 'ne' ? "नीति र प्रक्रिया" : "Policies & Procedures", url: "/module-4" },
+  { id: 5, title: lang === 'es' ? "Gestión de Calidad" : lang === 'ne' ? "गुणस्तर व्यवस्थापन" : "Quality Management", url: "/module-5" },
+  { id: 6, title: lang === 'es' ? "Prevención de Fraude" : lang === 'ne' ? "ठगी रोकथाम" : "Fraud Prevention", url: "/module-6" },
+  { id: 7, title: lang === 'es' ? "Examen de Competencia" : lang === 'ne' ? "दक्षता परीक्षा" : "Competency Exam", url: "/competency" },
+];
+---
+
+<!DOCTYPE html>
+<html 
+  lang={lang} 
+  x-data={`{ bodyScale: ${lang === 'ne' ? 110 : 100}, headingScale: ${lang === 'ne' ? 125 : 110} }`}
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | {t('nav.title')}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body 
+    class="bg-slate-50 text-slate-800 antialiased flex h-screen overflow-hidden"
+    :style="'font-size: ' + fontSize + '%'"
+    style={lang === 'ne' ? 'font-family: "Noto Sans Devanagari", sans-serif;' : ''}
+  >
+    
+    <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:flex flex-col">
+      <div class="p-6 border-b border-slate-700">
+        <h1 class="text-xl font-bold text-sky-400">{t('nav.title')}</h1>
+        <p class="text-xs text-slate-400 mt-1">{t('nav.subtitle')}</p>
+      </div>
+      <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+        {modules.map((mod) => (
+          <a 
+            href={getLocalizedPath(mod.url, lang)} 
+            class={`block px-4 py-3 rounded-lg transition-colors duration-200 ${
+              currentModule === mod.id 
+              ? 'bg-sky-600 text-white font-semibold shadow-lg' 
+              : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+            }`}
+          >
+            <span class="text-xs uppercase tracking-wider opacity-75 block mb-1">{t('nav.module')} {mod.id}</span>
+            {mod.title}
+          </a>
+        ))}
+      </nav>
+      <div class="p-4 bg-slate-950 text-xs text-slate-500">
+        {t('nav.compliance')}
+      </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-screen overflow-hidden relative">
+      <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-8 shadow-sm z-10">
+        <h2 class="font-semibold text-lg text-slate-700">{title}</h2>
+        
+        <div class="flex items-center gap-4">
+            
+            <select 
+                class="bg-slate-100 border border-slate-300 text-slate-700 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2"
+                onchange="window.location.href=this.value"
+            >
+                {Object.entries(languages).map(([code, label]) => (
+                    <option value={code === 'en' ? '/module-1' : `/${code}/module-1`} selected={code === lang}>
+                        {label}
+                    </option>
+                ))}
+            </select>
+
+            <div class="flex items-center gap-3 bg-slate-100 rounded-full px-4 py-1.5 border border-slate-200">
+                <span class="text-xs font-bold text-slate-600 uppercase tracking-widest hidden sm:inline">Body</span>
+                <button @click="bodyScale = Math.max(90, bodyScale - 5)" class="w-8 h-8 font-bold" type="button">A-</button>
+                <span class="text-sm font-mono w-12 text-center" x-text="bodyScale + '%'"></span>
+                <button @click="bodyScale = Math.min(150, bodyScale + 5)" class="w-8 h-8 font-bold" type="button">A+</button>
+                <span class="text-xs font-bold text-slate-600 uppercase tracking-widest hidden sm:inline">Heading</span>
+                <button @click="headingScale = Math.max(100, headingScale - 5)" class="w-8 h-8 font-bold" type="button">H-</button>
+                <span class="text-sm font-mono w-12 text-center" x-text="headingScale + '%'"></span>
+                <button @click="headingScale = Math.min(170, headingScale + 5)" class="w-8 h-8 font-bold" type="button">H+</button>
+            </div>
+        </div>
+      </header>
+
+      <div class="flex-1 overflow-y-auto p-8 md:p-12 scroll-smooth">
+        <div 
+          class="max-w-3xl mx-auto pb-20" 
+          data-typescale 
+          :style="'--body-scale:' + bodyScale + '; --heading-scale:' + headingScale + ';'"
+        >
+          <slot />
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+:global([data-typescale]) {
+  font-size: calc(var(--body-scale, 100) * 1%);
+  line-height: 1.65;
+}
+:global([data-typescale] p),
+:global([data-typescale] li) {
+  line-height: 1.65;
+}
+:global([data-typescale] p:not([class*="text-"])),
+:global([data-typescale] li:not([class*="text-"])) {
+  color: #0f172a;
+}
+:global([data-typescale] h1),
+:global([data-typescale] h2),
+:global([data-typescale] h3),
+:global([data-typescale] h4),
+:global([data-typescale] h5),
+:global([data-typescale] h6) {
+  line-height: 1.2;
+}
+:global([data-typescale] h1) { font-size: calc(2.25rem * var(--heading-scale, 110) / 100); }
+:global([data-typescale] h2) { font-size: calc(1.875rem * var(--heading-scale, 110) / 100); }
+:global([data-typescale] h3) { font-size: calc(1.5rem * var(--heading-scale, 110) / 100); }
+:global([data-typescale] h4) { font-size: calc(1.25rem * var(--heading-scale, 110) / 100); }
+:global([data-typescale] h5) { font-size: calc(1.125rem * var(--heading-scale, 110) / 100); }
+:global([data-typescale] h6) { font-size: calc(1rem * var(--heading-scale, 110) / 100); }
+[lang="ne"] :global([data-typescale]) {
+  font-family: "Noto Sans Devanagari", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+</style>

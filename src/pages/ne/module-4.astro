@@ -1,0 +1,61 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+---
+
+<CourseLayout title="मोड्युल ४: नीति र प्रक्रिया" currentModule={4}>
+  
+  <span class="text-sky-600 font-bold tracking-wider uppercase text-sm">विषय ४ मध्ये ६</span>
+  <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-8">विभागका नीति तथा प्रक्रियाहरू</h1>
+
+  <div class="prose prose-lg prose-slate max-w-none">
+    
+    <p class="lead text-xl text-slate-600 mb-8">
+      पालना गर्नु कागजको काम मात्र होइन—यो कानुनी आवश्यकता हो। OLTL को नियम र सहभागीको केयर प्लान पालना गरेमा सेवा सुरक्षित र बिल योग्य हुन्छ।
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div class="bg-white p-6 rounded-xl shadow border-t-4 border-t-sky-500">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">१. केयर प्लान (PCSP)</h3>
+        <p class="text-sm text-slate-600"><strong>नियम:</strong> अनुमति प्राप्त काम मात्र गर्नु।</p>
+        <p class="text-sm text-slate-600 mt-2">यदि प्लानमा “सफा, खाना, औषधि सहयोग” लेखिएको छ भने ग्यारेज सफा गर्न ४ घण्टा खर्च गर्न पाइँदैन।</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow border-t-4 border-t-sky-500">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">२. EVV (घडी इन/आउट)</h3>
+        <p class="text-sm text-slate-600"><strong>नियम:</strong> सहभागीको घरमै एप प्रयोग गरी इन/आउट गर्ने।</p>
+        <p class="text-sm text-slate-600 mt-2">GPS अनिवार्य छ। आफ्नो घरबाट इन गर्नुभयो भने गलत बिलिङ् मानिन्छ।</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow border-t-4 border-t-sky-500">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">३. स्थिति परिवर्तन</h3>
+        <p class="text-sm text-slate-600"><strong>नियम:</strong> अस्पताल भर्ना, लडाइँ, वा स्वास्थ्य परिवर्तन तात्कालिक रिपोर्ट।</p>
+        <p class="text-sm text-slate-600 mt-2">अस्पतालमा हुँदा सेवा बिल गर्न पाइँदैन, त्यसैले कार्यालयलाई तुरुन्त खबर गर्नुहोस्।</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow border-t-4 border-t-sky-500">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">४. सार्वभौम सावधानी</h3>
+        <p class="text-sm text-slate-600"><strong>नियम:</strong> सबै तरललाई संक्रमण हुनसक्छ भन्ने मान्यता।</p>
+        <p class="text-sm text-slate-600 mt-2">ट्वाइलेट र नुहाउने सहयोगमा पञ्जा, हात धोने, छुइएको सतह सफा गर्ने।</p>
+      </div>
+    </div>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-12">
+      <h4 class="text-lg font-bold text-slate-900 mb-3">दैनिक राम्रो अभ्यास</h4>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-2">
+        <li>प्रत्येक सिफ्ट सुरु अघि केयर प्लान छिटो पढेर समय/कार्य पुष्टि गर्नुहोस्।</li>
+        <li>अनुमति नपाएको काम माग्दा सम्मानपूर्वक कारण बताई कार्यालयमा परामर्श गर्ने प्रस्ताव गर्नुहोस्।</li>
+        <li>पञ्जा, सेनिटाइजर जस्ता सामग्री सकिँदैछन् भने नोट राखी सूचित गर्नुहोस्।</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-between items-center pt-8 border-t border-slate-200">
+        <a href="/ne/module-3" class="text-slate-500 hover:text-sky-600 font-semibold flex items-center gap-2">
+            &larr; अघिल्लो: गुनासो समाधान
+        </a>
+        <a href="/ne/module-5" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center gap-2">
+            अर्को: गुणस्तर व्यवस्थापन &rarr;
+        </a>
+    </div>
+
+  </div>
+</CourseLayout>
